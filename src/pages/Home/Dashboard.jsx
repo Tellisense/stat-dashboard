@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { handleHydrateDashboard, selectStats } from '../../features/statisticSlice'
-import { Grid } from '@material-ui/core'
+import { Grid, FormControl, Input, InputLabel } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Logo from '../../components/Logo'
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import DashTable from '../../components/DashTable';
 
 
@@ -36,6 +36,7 @@ const Dashboard = (props) => {
   const [num, setNum] = useState()
   const [number, setNumber] = useState(null)
   console.log(`tableArr`, tableArr)
+  console.log(`number: `, number)
 
 
   const hydrateDashboard = (val) => {
@@ -54,7 +55,7 @@ const Dashboard = (props) => {
     // }
     hydrateDashboard(number)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [number])
 
 
   // useEffect(() => {
@@ -83,7 +84,19 @@ const Dashboard = (props) => {
       <Grid container justify="space-evenly" alignItems="flex-start" xs={12}>
         <Grid container item direction="column" justify="center" alignItems="flex-start" xs={12} sm={3}>
           <Box mx="auto">
-            <form className={classes.form} noValidate autoComplete="off">
+            <FormControl>
+              <InputLabel htmlFor="my-input">Add Number</InputLabel>
+              <Input value={num} onChange={handleChange} />
+              <Button
+                onClick={handleSubmit}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                Submit
+          </Button>
+            </FormControl>
+            {/* <form className={classes.form} noValidate autoComplete="off">
               <TextField value={num} onChange={handleChange} label="Add Number" />
               <Button
                 onClick={handleSubmit}
@@ -93,7 +106,7 @@ const Dashboard = (props) => {
               >
                 Submit
           </Button>
-            </form>
+            </form> */}
           </Box>
         </Grid>
         <Grid container justify="center" alignItems="flex-start" item xs={12} sm={3}>
