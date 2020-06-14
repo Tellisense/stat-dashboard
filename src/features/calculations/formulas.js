@@ -2,18 +2,21 @@ export const calculateMean = array =>
   (array.reduce((a, b) => a + b) / array.length).toFixed(6);
 
 export const calculateMedian = array => {
-  if (array.length === 0) return 0;
-  array.slice().sort((a, b) => a - b);
-  let half = Math.floor(array.length / 2);
-  if (array.length % 2) return array[half];
-  return ((array[half - 1] + array[half]) / 2.0).toFixed(6);
+  const mid = Math.floor(array.length / 2),
+    nums = [...array].sort((a, b) => a - b);
+  return (array.length % 2 !== 0
+    ? nums[mid]
+    : (nums[mid - 1] + nums[mid]) / 2
+  ).toFixed(6);
 };
 
 export const calculateStdDev = array => {
-  let n = array.length;
-  let mean = calculateMean(array);
+  let m = calculateMean(array);
   return Math.sqrt(
-    array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n
+    array.reduce(function (sq, n) {
+      return sq + Math.pow(n - m, 2);
+    }, 0) /
+      (array.length - 1)
   ).toFixed(6);
 };
 

@@ -34,7 +34,7 @@ const Dashboard = (props) => {
   const dispatch = useDispatch()
   const tableArr = useSelector(selectStats)
   const [num, setNum] = useState()
-  const [number, setNumber] = useState(null)
+  const [number, setNumber] = useState('')
   console.log(`tableArr`, tableArr)
   console.log(`number: `, number)
 
@@ -76,7 +76,7 @@ const Dashboard = (props) => {
           <Box mx="auto">
             <form onSubmit={handleSubmit}>
               <InputLabel htmlFor="my-input">Add Number</InputLabel>
-              <Input value={num} onChange={handleChange} />
+              <Input value={num || ''} onChange={handleChange} />
               <Button
                 type="submit"
                 variant="contained"
