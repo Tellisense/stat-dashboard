@@ -114,9 +114,9 @@ const Dashboard = (props) => {
                 <Box p={1}>
                   <DashTable title={table.title} data={table.data} />
                 </Box>
-                {table.data2 !== null && <Box p={1}>
+                {/* {table.data2 !== null && <Box p={1}>
                   <DashTable title={`After Adding: ${number}`} data={table.data2} />
-                </Box>}
+                </Box>} */}
               </Paper>
             </Grid>
           )
