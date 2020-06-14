@@ -33,13 +33,13 @@ export const {
   // numberUpdated,
 } = statSlice.actions;
 
-export const handleHydrateDashboard = () => async dispatch => {
+export const handleHydrateDashboard = number => async dispatch => {
   const { data } = await axios.get("http://localhost:9020/api/stats");
   dispatch(apiSucceeded(data));
   const calculateFormulas = () => {
     let arr = [];
     for (let [key, value] of Object.entries(data)) {
-      arr.push(getValues(key, value));
+      arr.push(getValues(key, value, number));
     }
     dispatch(DataCalculated(arr));
   };

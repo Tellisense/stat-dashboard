@@ -38,8 +38,8 @@ const Dashboard = (props) => {
   console.log(`tableArr`, tableArr)
 
 
-  const hydrateDashboard = () => {
-    dispatch(handleHydrateDashboard())
+  const hydrateDashboard = (val) => {
+    dispatch(handleHydrateDashboard(val))
   }
 
   // const hydrateDashboardNumber = (val) => {
@@ -48,7 +48,11 @@ const Dashboard = (props) => {
   // }
 
   useEffect(() => {
-    hydrateDashboard()
+    // let val = null
+    // if (number) {
+    //   val = number
+    // }
+    hydrateDashboard(number)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -114,9 +118,9 @@ const Dashboard = (props) => {
                 <Box p={1}>
                   <DashTable title={table.title} data={table.data} />
                 </Box>
-                {/* {table.data2 !== null && <Box p={1}>
+                {table.data2 !== null && table.data2 !== undefined && <Box p={1}>
                   <DashTable title={`After Adding: ${number}`} data={table.data2} />
-                </Box>} */}
+                </Box>}
               </Paper>
             </Grid>
           )

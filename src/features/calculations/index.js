@@ -5,6 +5,7 @@ const createData = (operation, value) => {
 };
 
 const getValues = (title, dataArray, number) => {
+  console.log(`number in formulas `, number);
   if (!number) {
     return {
       title,
@@ -16,7 +17,7 @@ const getValues = (title, dataArray, number) => {
       ],
     };
   } else {
-    const newArray = dataArray.push(number);
+    const newArray = [...dataArray, number];
     return {
       title,
       data: [
