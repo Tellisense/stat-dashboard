@@ -18,6 +18,7 @@ const getValues = (title, dataArray, number) => {
     };
   } else {
     const newArray = [...dataArray, number];
+    console.log(`newArray: `, newArray);
     return {
       title,
       data: [

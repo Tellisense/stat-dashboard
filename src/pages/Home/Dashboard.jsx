@@ -38,33 +38,23 @@ const Dashboard = (props) => {
   console.log(`tableArr`, tableArr)
   console.log(`number: `, number)
 
-
   const hydrateDashboard = (val) => {
     dispatch(handleHydrateDashboard(val))
   }
 
-  // const hydrateDashboardNumber = (val) => {
-  //   dispatch(handleHydrateDashboardNumber(val))
-
-  // }
-
   useEffect(() => {
-    // let val = null
-    // if (number) {
-    //   val = number
-    // }
     hydrateDashboard(number)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [number])
 
 
-  // useEffect(() => {
-  //   hydrateDashboardNumber(number)
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [number])
-
   const handleChange = e => {
-    setNum(e.target.value)
+    let val = parseInt(e.target.value)
+    if (isNaN(val)) {
+      setNum("")
+    } else {
+      setNum(val)
+    }
   }
 
   // onSubmit validate data
@@ -84,18 +74,18 @@ const Dashboard = (props) => {
       <Grid container justify="space-evenly" alignItems="flex-start" xs={12}>
         <Grid container item direction="column" justify="center" alignItems="flex-start" xs={12} sm={3}>
           <Box mx="auto">
-            <FormControl>
+            <form onSubmit={handleSubmit}>
               <InputLabel htmlFor="my-input">Add Number</InputLabel>
               <Input value={num} onChange={handleChange} />
               <Button
-                onClick={handleSubmit}
+                type="submit"
                 variant="contained"
                 color="primary"
                 className={classes.button}
               >
                 Submit
           </Button>
-            </FormControl>
+            </form>
             {/* <form className={classes.form} noValidate autoComplete="off">
               <TextField value={num} onChange={handleChange} label="Add Number" />
               <Button

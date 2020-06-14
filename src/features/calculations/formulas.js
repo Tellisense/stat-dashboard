@@ -18,20 +18,22 @@ export const calculateStdDev = array => {
 };
 
 export const calculateMode = array => {
-  return array
-    .reduce(
-      function (current, num) {
-        const freq =
-          num in current.numMap
-            ? ++current.numMap[num]
-            : (current.numMap[num] = 1);
-        if (freq > current.modeFreq && freq > 1) {
-          current.modeFreq = freq;
-          current.mode = num;
-        }
-        return current;
-      },
-      { mode: null, modeFreq: 0, numMap: {} }
-    )
-    .mode.toFixed(6);
+  let m = array.reduce(
+    function (current, num) {
+      const freq =
+        num in current.numMap
+          ? ++current.numMap[num]
+          : (current.numMap[num] = 1);
+      if (freq > current.modeFreq && freq > 1) {
+        current.modeFreq = freq;
+        current.mode = num;
+      }
+      return current;
+    },
+    { mode: null, modeFreq: 0, numMap: {} }
+  ).mode;
+  if (m) {
+    return m.toFixed(6);
+  }
+  return "No Mode";
 };

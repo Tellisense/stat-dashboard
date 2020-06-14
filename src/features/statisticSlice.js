@@ -8,7 +8,6 @@ export const statSlice = createSlice({
   initialState: {
     value: {},
     calculations: [],
-    number: null,
   },
   reducers: {
     apiSucceeded: (stats, action) => {
@@ -20,9 +19,6 @@ export const statSlice = createSlice({
     DataCalculated: (stats, action) => {
       stats.calculations = action.payload;
     },
-    // numberUpdated: (stats, action) => {
-    //   stats.number = action.payload;
-    // },
   },
 });
 
@@ -45,19 +41,6 @@ export const handleHydrateDashboard = number => async dispatch => {
   };
   calculateFormulas();
 };
-
-// export const handleHydrateDashboardNumber = number => dispatch => {
-//   const calculateFormulas = number => state => {
-//     let arr = [];
-//     for (let [key, value] of Object.entries(state.stats.value)) {
-//       arr.push(getValues(key, value, number));
-//     }
-//     dispatch(DataCalculated(arr));
-//   };
-//   calculateFormulas(number);
-// };
-
-// [{ title: "data1234", data: [1, 2, 3, 4], data2: [3, 4, 5, 6] }, {}]
 
 export const selectStats = state => {
   console.log(`state:  `, state);
