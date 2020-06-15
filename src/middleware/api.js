@@ -17,12 +17,12 @@ const api = ({ dispatch }) => next => async action => {
       data,
     });
     // General
-    dispatch(actions.apiSucceeded(response.data));
+    dispatch(actions.dataLoaded(response.data));
     // Specific
     if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
   } catch (error) {
     // General
-    dispatch(actions.apiFailed(error.message));
+    dispatch(actions.dataLoadedFailed(error.message));
     // Specific
     if (onError) dispatch({ type: onError, payload: error.message });
   }

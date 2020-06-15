@@ -4,25 +4,29 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ```In the project directory:
 
-$ npm i
+  $ npm i
 
-  Goto the server folder
 
-$ cd src/server
+Go to the server folder
 
-  Install server dependencies
+  $ cd src/server
 
-$ npm i
 
-  Go back to the root directory
+Install server dependencies
 
-$ cd ..
+  $ npm i
 
-$ cd ..
+
+Go back to the root directory
+
+  $ cd ..
+
+  $ cd ..
+
 
 To start both the server and run the application:
 
-$ npm run dev
+  $ npm run dev
 ```
 
 Runs the app in the development mode.<br />

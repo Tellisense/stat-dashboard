@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { handleHydrateDashboard, selectStats } from '../../features/statisticSlice'
+import { handleHydrateDashboard, selectStats, sampleDataGenerator } from '../../features/statisticSlice'
 import { Grid, Input, InputLabel } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -54,7 +54,11 @@ const Dashboard = (props) => {
     }
   }
 
-  // onSubmit validate data
+  const handleLoadData = e => {
+    dispatch(sampleDataGenerator())
+  }
+
+
   const handleSubmit = e => {
     e.preventDefault()
     if (num) {
@@ -89,6 +93,7 @@ const Dashboard = (props) => {
         <Grid item xs={12} sm={3}>
           <Box component="span">
             <Button
+              onClick={handleLoadData}
               variant="contained"
               color="primary"
               className={classes.button}

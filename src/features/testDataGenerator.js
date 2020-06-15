@@ -1,4 +1,4 @@
-export const testDataGenerator = quantity => {
+const testDataGenerator = quantity => {
   var ARRAY_LENGTH = quantity;
   var randomArray = [];
   for (let i = 0; i < ARRAY_LENGTH; i++) {
@@ -6,3 +6,5 @@ export const testDataGenerator = quantity => {
   }
   return randomArray;
 };
+
+export default testDataGenerator;
