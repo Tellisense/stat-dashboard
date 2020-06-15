@@ -1,28 +1,28 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Available Scripts
+## How to Run Application
 
 ```In the project directory:
 
-# npm i
+$ npm i
 
-goto the server folder
+  Goto the server folder
 
-# cd src/server
+$ cd src/server
 
-install server dependencies
+  Install server dependencies
 
-# npm i
+$ npm i
 
-go back to the root directory
+  Go back to the root directory
 
-# cd ..
+$ cd ..
 
-# cd ..
+$ cd ..
 
-to start the server and run the application:
+To start both the server and run the application:
 
-# npm run dev
+$ npm run dev
 ```
 
 Runs the app in the development mode.<br />
