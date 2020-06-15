@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { handleHydrateDashboard, selectStats } from '../../features/statisticSlice'
-import { Grid, FormControl, Input, InputLabel } from '@material-ui/core'
+import { Grid, Input, InputLabel } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Logo from '../../components/Logo'
-// import TextField from '@material-ui/core/TextField';
 import DashTable from '../../components/DashTable';
 
 
@@ -35,8 +34,6 @@ const Dashboard = (props) => {
   const tableArr = useSelector(selectStats)
   const [num, setNum] = useState()
   const [number, setNumber] = useState('')
-  console.log(`tableArr`, tableArr)
-  console.log(`number: `, number)
 
   const hydrateDashboard = (val) => {
     dispatch(handleHydrateDashboard(val))

@@ -43,7 +43,6 @@ export const handleHydrateDashboard = number => async dispatch => {
 };
 
 export const selectStats = state => {
-  console.log(`state:  `, state);
   return state.stats.calculations;
 };
 
