@@ -2,27 +2,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory:
+```In the project directory:
 
-### `npm i`
+# npm i
 
 goto the server folder
 
-### `cd src/server`
+# cd src/server
 
 install server dependencies
 
-### `npm i`
+# npm i
 
 go back to the root directory
 
-### `cd ..`
+# cd ..
 
-### `cd ..`
+# cd ..
 
 to start the server and run the application:
 
-### `npm run dev`
+# npm run dev
+```
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3020](http://localhost:3020) to view it in the browser.<br />
