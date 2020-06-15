@@ -67,16 +67,17 @@ const Dashboard = (props) => {
   }
 
   return (
-    <Grid container className={classes.root} justify="center" alignItems="center" direction="column" xs={12}>
+    <Grid container className={classes.root} justify="center" alignItems="center" direction="column">
       <Grid container item xs={12} justify="center" alignItems="center">
         <Logo />
       </Grid>
-      <Grid container justify="space-evenly" alignItems="flex-start" xs={12}>
-        <Grid container item direction="column" justify="center" alignItems="flex-start" xs={12} sm={3}>
-          <Box mx="auto">
+      <Grid container justify="space-evenly" alignItems="center" >
+        <Grid item xs={12} sm={3}>
+          <Box>
             <form onSubmit={handleSubmit}>
               <InputLabel htmlFor="my-input">Add Number</InputLabel>
               <Input value={num || ''} onChange={handleChange} />
+              <br />
               <Button
                 type="submit"
                 variant="contained"
@@ -86,21 +87,10 @@ const Dashboard = (props) => {
                 Submit
           </Button>
             </form>
-            {/* <form className={classes.form} noValidate autoComplete="off">
-              <TextField value={num} onChange={handleChange} label="Add Number" />
-              <Button
-                onClick={handleSubmit}
-                variant="contained"
-                color="primary"
-                className={classes.button}
-              >
-                Submit
-          </Button>
-            </form> */}
           </Box>
         </Grid>
-        <Grid container justify="center" alignItems="flex-start" item xs={12} sm={3}>
-          <Box component="span" mt={8} mx="auto">
+        <Grid item xs={12} sm={3}>
+          <Box component="span">
             <Button
               variant="contained"
               color="primary"
@@ -112,11 +102,10 @@ const Dashboard = (props) => {
           </Box>
         </Grid>
       </Grid>
-      <Grid container xs={12} spacing={5} justify="center" alignItems="center">
+      <Grid container spacing={5} justify="center" alignItems="center">
         {tableArr.map((table, index) => {
-
           return (
-            <Grid key={index} item xs={12} sm={6}>
+            <Grid item key={index} xs={12} sm={6}>
               <Paper className={classes.card}>
                 <Box p={1}>
                   <DashTable title={table.title} data={table.data} />
